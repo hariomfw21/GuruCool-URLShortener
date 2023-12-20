@@ -5,6 +5,8 @@ const { UrlShorten } = require("./routes/urlShorten");
 const { auth } = require("./controllers/authController");
 const { login } = require("./Routes/login");
 
+require("dotenv").config();
+
 const app = express();
 app.use(express.json());
 
@@ -20,8 +22,8 @@ app.use(auth); // Users must be logged in before accessing the endpoints below
 // Routes for URL shortening service
 app.use("/", UrlShorten);
 
-app.listen(8080, async () => {
-  console.log("listening on port 8080");
+app.listen(process.env.PORT, async () => {
+  console.log(`listening on port ${process.env.PORT}`);
   try {
     await connnection;
     console.log("connected to database");
