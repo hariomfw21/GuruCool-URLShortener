@@ -14,13 +14,13 @@ app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
 
-app.use("/", register);
-app.use("/", login);
+// app.use("/", register);
+// app.use("/", login);
 
-app.use(auth); // Users must be logged in before accessing the endpoints below
+// app.use(auth); // Users must be logged in before accessing the endpoints below
 
 // Routes for URL shortening service
-app.use("/", UrlShorten);
+// app.use("/", UrlShorten);
 
 app.listen(process.env.PORT, async () => {
   console.log(`listening on port ${process.env.PORT}`);
