@@ -12,19 +12,18 @@ register.post("/register", async (req, res) => {
     const existing = await UserModel.find({ email });
 
     if (existing.length > 0) {
-      res
-        .status(409)
-        .json({
-          message: `${email} already registered with a different account`,
-        });
+      res.status(409).json({
+        message: `${email} already registered with a different account`,
+      });
     } else {
       // Hash the password before saving
       bcrypt.hash(password, 5, async (err, hash) => {
         const data = new UserModel({ username, email, password: hash });
         await data.save();
-        res
-          .status(201)
-          .json({ message: `${username} successfully registered` });
+        res.status(201).json({
+          registration: "Successful",
+          message: "User registered successfully",
+        });
       });
     }
   } catch (error) {
