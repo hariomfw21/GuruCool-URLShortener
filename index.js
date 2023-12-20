@@ -3,7 +3,8 @@ const { register } = require("./routes/register");
 const { connnection } = require("./Connection/connection");
 const { UrlShorten } = require("./routes/urlShorten");
 const { auth } = require("./controllers/authController");
-const { login } = require("./Routes/login");
+const { login } = require("./routes/login");
+
 
 require("dotenv").config();
 
