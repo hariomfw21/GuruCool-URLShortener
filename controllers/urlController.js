@@ -1,7 +1,6 @@
 const shortid = require("shortid");
 const { UrlModel } = require("../models/UrlSchema");
 
-
 const shortenUrl = async (req, res) => {
   try {
     if (!req.body.originalUrl) {
@@ -16,7 +15,10 @@ const shortenUrl = async (req, res) => {
     });
 
     await url.save();
-    res.json({ originalUrl: url.originalUrl, shortUrl: url.shortUrl });
+    res.json({
+      originalUrl: url.originalUrl,
+      shortUrl: `https://tan-shark-tie.cyclic.app/${url.shortUrl}`,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
