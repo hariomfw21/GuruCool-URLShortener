@@ -18,7 +18,6 @@ app.get("/", (req, res) => {
 app.use("/", register);
 app.use("/", login);
 
-app.use(auth); // Users must be logged in before accessing the endpoints below
 
 // Routes for URL shortening service
 app.use("/", UrlShorten);
